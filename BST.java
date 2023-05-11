@@ -2,7 +2,6 @@ import java.util.Queue;
 import java.util.LinkedList;
 public class BST<K extends Comparable<K>, V> {
     private Node root;
-
     private class Node {
         private K key;
         private V val;
@@ -82,7 +81,6 @@ public class BST<K extends Comparable<K>, V> {
         }
         return min(x.left);
     }
-
     private Node deleteMin(Node x) {
         if (x.left == null) {
             return x.right;
@@ -90,13 +88,11 @@ public class BST<K extends Comparable<K>, V> {
         x.left = deleteMin(x.left);
         return x;
     }
-
     public Iterable<K> iterator() {
         Queue<K> keys = new LinkedList<>();
         inorder(root, keys);
         return keys;
     }
-
     private void inorder(Node x, Queue<K> keys) {
         if (x == null) {
             return;
